@@ -1,0 +1,15 @@
+FROM ubuntu:20.04
+LABEL maintainer="ikhsan@gmail.com"
+RUN apt-get update
+
+# membuat directory dan masuk ke directory tersebut
+WORKDIR /home/coba
+
+# membuat file dalam directory /coba
+RUN echo "Halo saya dari container 3" > file3.txt
+
+CMD [ "echo","Halo dari container 3" ]
+
+
+
+

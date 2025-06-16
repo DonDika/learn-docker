@@ -1,0 +1,15 @@
+FROM ubuntu:20.04
+LABEL maintainer="ikhsan@gmail.com"
+RUN apt-get update
+
+WORKDIR /home/coba
+RUN echo "Halo saya dari container 4" > file3.txt
+
+# meng-copy dari sumber komputer kita (folder4) ke folder dalam container (/home/coba)
+COPY folder4 /home/coba/
+
+CMD [ "echo","Halo dari container 4" ]
+
+
+
+
