@@ -1,0 +1,7 @@
+
+services, nama container yang akan dibuat
+
+
+ketika command docker compose dijalankan maka akan auto mencari file docker-compose.yml
+jika file docker compose berbeda maka jalankan command docker compose -f docker-compose-dev.yml up -d
+

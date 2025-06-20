@@ -1,0 +1,38 @@
+
+version: '3'
+services:
+  dev-nginx-1:
+    image: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - /home/dondika/WebProjects/Learn/dirumahrafif/learn-docker/html1:/usr/share/nginx/html
+  dev-nginx-2:
+    image: nginx
+    ports:
+      - "8081:80"
+    volumes:
+      - /home/dondika/WebProjects/Learn/dirumahrafif/learn-docker/html1:/usr/share/nginx/html
+  dev-mysql:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: "sandbox_docker"
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: "12345678"
+    volumes:
+      - /home/dondika/WebProjects/Learn/dirumahrafif/learn-docker/mysql_data:/var/lib/mysql
+    networks:
+      - dev-network
+  dev-phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: dev-mysql
+    networks:
+      - dev-network
+networks:
+  dev-network:
+    driver: bridge
+
+
